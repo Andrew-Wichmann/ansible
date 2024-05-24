@@ -2,6 +2,13 @@
 
 My personal Ansible Playbook to set up an Ubuntu machine just how I like it.
 
+# Requirements
+
+## Ubuntu
+
+```bash
+sudo apt update && sudo apt install -y software-properties-common && sudo apt-add-repository -y ppa:ansible/ansible && sudo apt-add-repository -y ppa:neovim-ppa/unstable && sudo apt update && sudo apt install -y curl git ansible build-essential neovim
+```
 
 # Usage
 
