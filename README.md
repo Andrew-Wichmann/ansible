@@ -13,6 +13,7 @@ sudo apt update && sudo apt install -y software-properties-common && sudo apt-ad
 # Usage
 
 ```bash
+git clone https://github.com/Andrew-Wichmann/ansible.git
 ansible-playbook local.yml --ask-become-pass --ask-vault-pass
 ```
 
