@@ -13,6 +13,7 @@
   become: true
   apt:
     name: ["build-essential", "cmake", "pkg-config", "libpthread-stubs0-dev"] 
+    update_cache: true
   tags:
     - install
     - neovim
