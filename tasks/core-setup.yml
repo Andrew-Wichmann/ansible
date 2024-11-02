@@ -1,3 +1,14 @@
+- name: Add Wezterm APT repo
+  become: true
+  deb822_repository:
+    name: wezterm
+    types: deb
+    uris: https://apt.fury.io/wez/
+    suites: "*"
+    components: "*"
+    architectures: amd64
+    signed_by: https://apt.fury.io/wez/gpg.key
+
 - name: Install System Packages 1 (build-essential)
   become: true
   apt:
@@ -26,14 +37,10 @@
 - name: Install System Packages 3 (the rest)
   become: true
   apt:
-    name: [ "curl", "htop", "sway", "nvidia-settings", "pavucontrol", "i3status", "wl-clipboard", "lightdm" ]
+    name: [ "curl", "htop", "sway", "nvidia-settings", "pavucontrol", "i3status", "wl-clipboard", "lightdm", "wezterm" ]
   tags:
     - install
     - core
-
-      # - name: Reconfigure lightdm
-      #   become: true
-      #   command: dpkg-reconfigure lightdm -f noninteractive
 
 - name: Set sway as default WM
   become: true
@@ -43,4 +50,5 @@
       user-session=sway
     dest: "/etc/lightdm/lightdm.conf.d/50-sway.conf"
     mode: '0644'
+
 
