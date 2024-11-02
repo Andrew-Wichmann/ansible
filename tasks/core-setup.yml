@@ -19,28 +19,19 @@
 - name: Install System Packages 3 (the rest)
   become: true
   apt:
-    name: [ "curl", "htop", "sway", "nvidia-settings", "pavucontrol", "i3status", "wl-clipboard" ]
-  tags:
-    - install
-    - core
-- name: Install LightDM
-  become: true
-  apt:
-    name: lightdm
+    name: [ "curl", "htop", "sway", "nvidia-settings", "pavucontrol", "i3status", "wl-clipboard", "debconf-utils", "lightdm" ]
   tags:
     - install
     - core
 
-- name: Remove GDM3
+- name: Set LightDM as display manager 
   become: true
-  apt:
-    name: gdm3
-    state: absent
+  script: echo lightdm shared/default-x-display-manager select lightdm | debconf-set-selections -v
   tags:
     - install
     - core
 
-- name: Set sway as WM
+- name: Set sway as default WM
   become: true
   copy:
     content: |
