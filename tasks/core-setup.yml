@@ -16,6 +16,13 @@
     - neovim
     - core
 
+- name: Set lightdm as the default display manager
+  become: true
+  copy:
+    content: /usr/sbin/lightdm 
+    dest: "/etc/X11/default-x-display-manager"
+    mode: '0644'
+
 - name: Install System Packages 3 (the rest)
   become: true
   apt:
@@ -24,17 +31,9 @@
     - install
     - core
 
-- name: Set debconf selections for lightdm
-  become: true
-  debconf:
-    name: "lightdm"
-    question: "shared/default-x-display-manager"
-    value: "lightdm"
-    vtype: "select"
-
-- name: Reconfigure lightdm
-  become: true
-  command: dpkg-reconfigure lightdm -f noninteractive
+      # - name: Reconfigure lightdm
+      #   become: true
+      #   command: dpkg-reconfigure lightdm -f noninteractive
 
 - name: Set sway as default WM
   become: true
