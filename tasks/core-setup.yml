@@ -20,7 +20,7 @@
   become: true
   copy:
     content: /usr/sbin/lightdm 
-    dest: "/etc/X11/default-x-display-manager"
+    dest: "/etc/X11/default-display-manager"
     mode: '0644'
 
 - name: Install System Packages 3 (the rest)
