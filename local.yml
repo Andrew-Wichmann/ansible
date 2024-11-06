@@ -20,6 +20,7 @@
         #    - include: tasks/zsh-setup.yml
         #    - include: tasks/slack-setup.yml
         #    - include: tasks/personal-projects.yml
+    - include_tasks: tasks/asdf.yml
     - include_tasks: tasks/nvim-setup.yml
         #    - include: tasks/brave.yml
         #    - include: tasks/debugger.yml

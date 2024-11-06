@@ -1,0 +1,37 @@
+- name: Remove asdf
+  shell: rm -rf ~/.asdf
+  tags:
+    - install
+    - asdf
+
+- name: Install asdf
+  shell: git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
+  tags:
+    - install
+    - asdf
+
+# Note: this might be excessive for my usecases, but I'm going to choose diskspace+install time for peace-of-mind+features
+- name: Install python deps
+  become: true
+  apt:
+    name: ["build-essential", "gdb", "lcov", "pkg-config", "libbz2-dev", "libffi-dev", "libgdbm-dev",
+      "libgdbm-compat-dev", "liblzma-dev", "libncurses5-dev", "libreadline6-dev", "libsqlite3-dev", "libssl-dev",
+      "lzma", "lzma-dev", "tk-dev", "uuid-dev", "zlib1g-dev", "libmpdec-dev"]
+  tags:
+    - install
+    - asdf
+    - python
+
+- name: Install python
+  shell: asdf plugin add python && asdf install python latest
+  tags:
+    - install
+    - asdf
+    - python
+
+- name: Install Node (for some nvim packages)
+  shell: asdf plugin add nodejs && asdf install nodejs latest
+  tags:
+    - install
+    - asdf
+    - node
