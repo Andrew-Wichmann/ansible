@@ -23,14 +23,14 @@
     - python
 
 - name: Install python
-  shell: asdf plugin add python && asdf install python latest
+  shell: PATH=$PATH:~/.asdf/bin asdf plugin add python && PATH=$PATH:~/.asdf/bin asdf install python latest
   tags:
     - install
     - asdf
     - python
 
 - name: Install Node (for some nvim packages)
-  shell: asdf plugin add nodejs && asdf install nodejs latest
+  shell: PATH=$PATH:~/.asdf/bin asdf plugin add nodejs && PATH=$PATH:~/.asdf/bin asdf install nodejs latest
   tags:
     - install
     - asdf
