@@ -35,3 +35,10 @@
     - install
     - asdf
     - node
+
+- name: Install Go
+  shell: PATH=$PATH:~/.asdf/bin asdf plugin add golang && PATH=$PATH:~/.asdf/bin asdf install golang 1.23.3
+  tags:
+    - install
+    - asdf
+    - go
