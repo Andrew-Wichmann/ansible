@@ -23,7 +23,7 @@
         #    - include: tasks/slack-setup.yml
         #    - include: tasks/personal-projects.yml
     - include_tasks: tasks/nvim-setup.yml
-        #    - include: tasks/brave.yml
+    - include_tasks: tasks/brave.yml
         #    - include: tasks/debugger.yml
         #    - include: tasks/productivity-tools.yml
         #    - include: tasks/lsp.yml
