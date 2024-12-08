@@ -1,0 +1,48 @@
+- name: Install AWS CLI
+  become: true
+  shell: |
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
+  tags:
+    - install
+    - aws
+
+- name: Clean up because I'm too dumb to figure out how to install from /tmp
+  become: true
+  shell: |
+    rm -rf aws
+    rm -rf awscliv2.zip
+  tags:
+    - install
+    - aws
+
+- name: Ensure .aws directory exists.
+  file:
+    dest: "{{ dest_aws_config | dirname }}"
+    mode: 0700
+    state: directory
+  tags:
+    - dotfiles
+    - install
+    - aws
+
+- name: Install aws config
+  copy:
+    src: "{{ source_aws_config }}"
+    dest: "{{ dest_aws_config }}"
+    mode: 0600
+  tags:
+    - dotfiles
+    - install
+    - aws
+
+- name: Install aws credentials
+  copy:
+    src: "{{ source_aws_credentials }}"
+    dest: "{{ dest_aws_credentials }}"
+    mode: 0600
+  tags:
+    - dotfiles
+    - install
+    - aws
