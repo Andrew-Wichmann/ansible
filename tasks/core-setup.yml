@@ -38,7 +38,7 @@
 - name: Install System Packages 3 (the rest)
   become: true
   apt:
-    name: [ "curl", "htop", "sway", "nvidia-settings", "pavucontrol", "i3status", "wl-clipboard", "lightdm", "wezterm", "wofi" ]
+    name: [ "curl", "htop", "sway", "nvidia-settings", "pavucontrol", "i3status", "wl-clipboard", "lightdm", "wezterm", "wofi", "tmux" ]
   tags:
     - install
     - core
@@ -51,4 +51,3 @@
       user-session=sway
     dest: "/etc/lightdm/lightdm.conf.d/50-sway.conf"
     mode: '0644'
-
