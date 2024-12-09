@@ -12,7 +12,7 @@
 - name: Install System Packages 1 (build-essential)
   become: true
   apt:
-    name: ["build-essential", "cmake", "pkg-config", "libpthread-stubs0-dev"] 
+    name: ["build-essential", "cmake", "pkg-config", "libpthread-stubs0-dev"]
     update_cache: true
   tags:
     - install
@@ -22,7 +22,7 @@
 - name: Install System Packages 2 (unzip)
   become: true
   apt:
-    name: [ "lua5.1", "unzip", "libtool", "libtool-bin", "gettext"] 
+    name: [ "lua5.1", "unzip", "libtool", "libtool-bin", "gettext"]
   tags:
     - install
     - neovim
@@ -31,14 +31,14 @@
 - name: Set lightdm as the default display manager
   become: true
   copy:
-    content: /usr/sbin/lightdm 
+    content: /usr/sbin/lightdm
     dest: "/etc/X11/default-display-manager"
     mode: '0644'
 
 - name: Install System Packages 3 (the rest)
   become: true
   apt:
-    name: [ "curl", "htop", "sway", "nvidia-settings", "pavucontrol", "i3status", "wl-clipboard", "lightdm", "wezterm" ]
+    name: [ "curl", "htop", "sway", "nvidia-settings", "pavucontrol", "i3status", "wl-clipboard", "lightdm", "wezterm", "wofi" ]
   tags:
     - install
     - core
@@ -51,5 +51,4 @@
       user-session=sway
     dest: "/etc/lightdm/lightdm.conf.d/50-sway.conf"
     mode: '0644'
-
 
