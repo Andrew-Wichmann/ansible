@@ -21,6 +21,7 @@ ansible-playbook local.yml --ask-become-pass --ask-vault-pass
 # TODO
 - [ ] install GoMono nerd font
 - [ ] install catppuccin mocha tmux theme
+- [ ] install TheFuck
 
 # Credits
 
