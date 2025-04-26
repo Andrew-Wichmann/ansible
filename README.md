@@ -18,6 +18,10 @@ cd ansible
 ansible-playbook local.yml --ask-become-pass --ask-vault-pass
 ```
 
+# TODO
+- [ ] install GoMono nerd font
+- [ ] install catppuccin mocha tmux theme
+
 # Credits
 
 Heavily inspired by [ThePrimeagen](https://github.com/ThePrimeagen/ansible/)
