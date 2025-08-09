@@ -10,12 +10,20 @@ My personal Ansible Playbook to set up an Ubuntu machine just how I like it.
 sudo apt update && sudo apt install -y software-properties-common && sudo apt-add-repository -y ppa:ansible/ansible && sudo apt update && sudo apt install -y curl git ansible build-essential
 ```
 
+## Arch
+
+```bash
+sudo pacman -S ansible
+```
+
+
 # Usage
 
 ```bash
 git clone https://github.com/Andrew-Wichmann/ansible.git
 cd ansible
 ansible-playbook local.yml --ask-become-pass --ask-vault-pass
+ansible-playbook local.yml --tags "aws,ssh" --ask-become-pass --ask-vault-pass
 ```
 
 # TODO
