@@ -1,0 +1,9 @@
+- name: Install API keys
+  copy:
+    src: "{{ source_api_keys }}"
+    dest: "{{ dest_api_keys }}"
+    mode: 0600
+  tags:
+    - dotfiles
+    - install
+    - api_keys

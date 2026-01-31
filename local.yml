@@ -6,6 +6,8 @@
     source_aws_credentials: "./.aws/credentials"
     dest_aws_config: "{{ lookup('env', 'HOME') }}/.aws/config"
     dest_aws_credentials: "{{ lookup('env', 'HOME') }}/.aws/credentials"
+    source_api_keys: "./.api_keys"
+    dest_api_keys: "{{ lookup('env', 'HOME') }}/.api_keys"
   pre_tasks:
   - name: Update Apt
     become: true
@@ -31,6 +33,8 @@
     - include_tasks: tasks/brave.yml
     - include_tasks: tasks/aws.yml
       tags: aws
+    - include_tasks: tasks/api_keys.yml
+      tags: api_keys
         #    - include: tasks/debugger.yml
         #    - include: tasks/productivity-tools.yml
         #    - include: tasks/lsp.yml
